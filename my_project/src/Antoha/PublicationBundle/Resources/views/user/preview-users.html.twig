@@ -1,0 +1,20 @@
+{% extends '@AntohaPublication/publication/preview.html.twig' %}
+
+{% block main %}
+    <div class="post-list">
+        <ul class="content-list">
+            {% for user in users %}
+                <li class="content-list__item" id="{{ user.id }}">
+                    <article class="post post-preview">
+                        <a class="post__user-info" href="{{ path('show_user_profile', {'usernameCanonical': user.usernameCanonical}) }}">
+                            {% if user.avatarFileName %}
+                                <img src="/images/avatars/{{ user.avatarFileName}}" class="user__img user__img-small">
+                            {% endif %}
+                            <span class="user-info__nickname">{{ user.username }}</span>
+                        </a>
+                    </article>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

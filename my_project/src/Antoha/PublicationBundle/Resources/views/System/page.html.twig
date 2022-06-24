@@ -1,0 +1,43 @@
+{% extends '@AntohaPublication/base.html.twig' %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/base/default.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/base/form.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/base/typography.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/components/page.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/components/header.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/components/footer.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/components/main.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/components/post.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/components/form.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/components/image.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/components/avatars.css') }}"/>
+{% endblock %}
+
+{% block body %}
+    <div class="page-wrap">
+        <div class="page">
+            <header class="header" id="header">
+                <div class="region region-header">
+                    {% block header %}{% endblock %}
+                </div>
+            </header>
+            <div class="main-wrap">
+                    <main class="main">
+                        <div class="region region-main">
+                        {% block main %}{% endblock %}
+                        </div>
+                    </main>
+                    <aside class="sidebar sidebar-right">
+                        <div class="region region-sidebar-right">
+                            {% block sidebar_right %}{% endblock %}
+                        </div>
+                    </aside>
+            </div>
+        </div>
+    </div>
+    <footer class="footer" id="footer">
+        <div class="region region-footer">
+            {% block footer %}{% endblock %}
+        </div>
+    </footer>
+{% endblock %}

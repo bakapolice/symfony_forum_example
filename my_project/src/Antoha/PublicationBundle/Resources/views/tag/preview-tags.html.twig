@@ -1,0 +1,18 @@
+{% extends '@AntohaPublication/publication/preview.html.twig' %}
+
+{% block main %}
+    <div class="post-list">
+    <ul class="content-list">
+        {% for tag in tags %}
+            <li class="content-list__item" id="{{ tag.id }}">
+                <article class="post post-preview">
+                        <a class="post__user-info" href="{{ path('show_tag_publications', {'tagName': tag.tagName}) }}">
+                            <span class="user-info__nickname">{{ tag.tagName }}</span>
+                        </a>
+                </article>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+
+{% endblock %}

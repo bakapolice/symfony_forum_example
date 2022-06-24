@@ -1,0 +1,8 @@
+.page { width: 100%; padding: 0; margin: 0 auto; }
+.page-wrap { display: flex; flex-direction: column; height: 100%; padding: 0px 0 30px 0; background-color: #f9f9f9; }
+
+.main-wrap { flex: 1 0 auto; max-width: 1200px; margin: 0 auto; display: -webkit-flex; display: flex; -webkit-flex-direction: row wrap; flex-direction: row wrap; }
+.main-wrap .main { -webkit-flex: 1 100%; flex: 1 100%; }
+.main-wrap .sidebar-right { position: relative; -webkit-flex: 1 100%; flex: 1 100%; background-color: #FFFFFF; height: 300px; margin: 10px 0; }
+@media (min-width: 960px) { .main-wrap .main { -webkit-flex: none; flex: none; width: calc(67% - 15px); margin-right: 30px; }
+  .main-wrap .sidebar-right { -webkit-flex: none; flex: none; width: calc(33% - 15px); } }

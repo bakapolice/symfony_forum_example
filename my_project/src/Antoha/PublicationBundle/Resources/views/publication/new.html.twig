@@ -1,0 +1,58 @@
+{% extends '@AntohaPublication/publication/preview.html.twig' %}
+
+{% block main %}
+
+    <div class="form-header">
+        <h1 class="form__title">Создание публикации</h1>
+    </div>
+
+    {{ form_start(form) }}
+    <div class="form_list">
+
+        <div class="form__item form__item-name">
+            <div class="form__item-label">Название публикации: </div>
+            <div class="form__item-field"> {{ form_widget(form.name)}}</div>
+            <div class="error"></div>
+         </div>
+
+        <div class="form__item form__item-image">
+            <div class="form__item-label">Изображение: </div>
+            <div class="form__item-field">{{ form_widget(form.postFile)}}</div>
+            <div class="error"></div>
+        </div>
+
+        <div class="form__item form__item-description">
+            <div class="form__item-label">Краткое описание: </div>
+            <div class="form__item-field">{{ form_widget(form.description)}}</div>
+            <div class="error"></div>
+        </div>
+
+        <div class="form__item form__item-url">
+            <div class="form__item-label">Метки: </div>
+            <div class="form__item-field">
+                {{ form_widget(form.tags) }}
+                {{ form_widget(form.postFile) }}
+            </div>
+            <div class="error"></div>
+        </div>
+
+        <div class="form__item form__item-text">
+            <div class="form__item-label">Содержание: </div>
+            <div class="form__item-field">{{ form_widget(form.text)}}</div>
+            <div class="error"></div>
+        </div>
+
+        <div class="form_action">
+            <input type="submit" class="form-btn submit_btn-create" value="Создать">
+            <a class="form-btn return_btn" href="{{ path('publication_preview') }}">К списку публикаций</a>
+        </div>
+    </div>
+    {{ form_end(form) }}
+{% endblock %}
+
+  {% block javascripts %}
+      <script src="{{ asset('scripts/vendor/ckeditor/ckeditor.js') }}"></script>
+      <script type="text/javascript">
+          CKEDITOR.replace('antoha_publicationbundle_publication_text')
+      </script>
+  {% endblock %}

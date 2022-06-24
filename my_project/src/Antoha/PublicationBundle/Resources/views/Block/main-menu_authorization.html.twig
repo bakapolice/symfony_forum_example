@@ -1,0 +1,15 @@
+{% extends '@AntohaPublication/System/nav.html.twig' %}
+{% block block_class %}main-menu menu--main-menu_right{% endblock %}
+{% block block_title_wrap %}{% endblock %}
+{% block block_content %}
+    <ul class="menu">
+        {% if is_granted('ROLE_USER') %}
+            <li class="menu-item"><a href="{{ path('fos_user_security_logout') }}" class="btn btn_logout">Выйти</a></li>
+            <li class="menu-item"><a href="{{ path('fos_user_profile_show') }}" class="btn btn_profile">Мой профиль</a></li>
+            <li><a class ="btn btn_create-post" href="{{ path('publication_new') }}">Написать</a></li>
+        {% else %}
+            <li class="menu-item"><a href="{{ path('fos_user_security_login') }}" class="btn btn_login">Войти</a></li>
+            <li class="menu-item"><a href="{{ path('fos_user_registration_register') }}" class="btn btn_registration">Регистрация</a></li>
+        {% endif %}
+    </ul>
+{% endblock %}

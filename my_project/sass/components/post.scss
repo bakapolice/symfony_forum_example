@@ -1,0 +1,203 @@
+@import "../default";
+@import "../inc/variable";
+@import "../inc/mixins";
+
+.post-list, .content-list, .post-menu{
+  @include resetLi;
+}
+
+.post-wrapper{
+  margin: 20px 0;
+  @include resetLi;
+}
+
+.post_action {
+  @include align-items(center);
+  cursor: pointer;
+  margin: 40px 0;
+  @include display-flex;
+
+  form{
+    width: 150px;
+    margin-right: 40px;
+  }
+  .post-btn {
+    margin: 0 10px;
+    &:first-child{
+      margin-left: 0;
+    }
+    background-color: #ffffff;
+
+    &:hover {
+      background-color: #ddd;
+    }
+  }
+
+  .post_btn {
+    &-create {
+      width: 100px;
+    }
+
+    &-save {
+      width: 160px;
+    }
+
+    &-delete {
+      width: 170px;
+      height: 36px;
+    }
+
+    &-edit {
+      width: 210px;
+    }
+
+
+  }
+
+  .return_btn, .post_btn-delete, .post_btn-edit {
+    border: 1px solid #d9d9d9;
+    padding: 7px 10px;
+    text-decoration: none;
+    color: #0f0f0f;
+    font-size: 14px;
+  }
+}
+
+
+.post-preview{
+  padding: 40px;
+  margin-top: 30px;
+  background-color: #FFFFFF;
+  @include box-shadow(1px 1px 5px rgba(0, 0, 0, 0.5));
+  border-radius: 4px;
+}
+
+.comment-preview{
+  padding: 5px;
+  margin-top: 30px;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #d5dddf;
+  border-left: 1px solid #d5dddf;
+  .post__header{
+    margin-bottom: 5px;
+    padding-bottom: 2px;
+    border: none;
+  }
+  .post-menu{
+    margin-top: 2px;
+    margin-bottom: 2px;
+    .btn-post{
+      padding: 0;
+      text-decoration: none;
+      border: none;
+      color: #548eaa;
+      margin-right: 10px;
+      font-size: 11px;
+      transition: .5s;
+      background-color: transparent;
+      &_delete-comment, &_edit-comment{
+        &:hover{
+          color: #395672;
+          text-decoration: underline;
+          background-color: transparent;
+        }
+      }
+    }
+  }
+
+}
+
+
+.post__title, .post__title-link {
+  margin: 0;
+  color: #444;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 36.4px;
+  text-decoration: none;
+  font-family: 'Fira Sans', sans-serif;
+}
+
+.post__title{
+  &-link{
+    &:hover{
+      color: #487284;
+    }
+    &-text{
+      color: #343434;
+      font-weight: 500;
+      font-size: 32px;
+      line-height: 40px;
+    }
+  }
+}
+
+.post__footer{
+  @include display-flex;
+  .post-feedback{
+    margin-top: 30px;
+    text-align: right;
+    flex-grow: 1;
+  }
+}
+
+.post-menu{
+  @include display-flex;
+  margin-top: 30px;
+  .btn-post{
+    text-decoration: none;
+    border: 1px solid #75aeca;
+    color: #548eaa;
+    border-radius: 3px;
+    padding: 6px;
+    margin-right: 10px;
+    font-size: 12px;
+    transition: .3s;
+    background-color: transparent;
+    &:hover{
+      background-color: $bHoverBlue;
+      color: #FFFFFF;
+    }
+  }
+}
+
+.post__time{
+  color: #5f5f5f;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 16px;
+  font-family: "-apple-system",BlinkMacSystemFont,Arial,sans-serif;
+  margin-left: 8px;
+}
+
+.post__header{
+  @include display-flex;
+  @include align-items(center);
+  border-bottom: 1px solid #d5dddf;
+  margin-bottom: 5px;
+  padding-bottom: 20px;
+}
+
+.inline-list{
+  @include display-flex;
+  flex-wrap: wrap;
+  @include align-items(flex-start);
+  margin: 5px 0 15px 0;
+  padding: 0;
+}
+
+
+.hub-link{
+  font-size: 13px;
+  color: #5e6973;
+  line-height: 1.5;
+  font-family: "-apple-system",BlinkMacSystemFont,Arial,sans-serif;
+  text-decoration: none;
+  &:hover{
+    color: #548eaa;
+  }
+}
+
+.comment-list {
+  border-top: 1px solid #d5dddf;
+}

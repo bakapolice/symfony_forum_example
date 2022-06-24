@@ -1,0 +1,69 @@
+{% extends '@AntohaPublication/System/page.html.twig' %}
+
+{% block header %}
+    {{ render(controller('AntohaPublicationBundle:Block:logo')) }}
+    {{ render(controller('AntohaPublicationBundle:Block:mainMenu')) }}
+    {{ render(controller('AntohaPublicationBundle:Block:mainMenuAuthorization')) }}
+{% endblock %}
+
+{% block main %}
+    <div class="post-list">
+        <ul class="content-list">
+        {% for publication in publications %}
+            <li class="content-list__item" id="{{ publication.id }}">
+                <article class="post post-preview">
+                    <header class="post__header">
+                        <a class="post__user-info" href="{{ path('fos_user_profile_show') }}">
+                            {% if publication.author %}{% set author = publication.author %}{% set src = author.avatarFileName %}
+                            <img src="/images/avatars/{{ src}}" class="user__img user__img-small">
+                            {% endif %}
+                            <span class="user-info__nickname">{{ publication.author }}</span>
+                        </a>
+                        <span class="post__time">{% if publication.publishingDate %}{{ publication.publishingDate|date('d M Y, H:i') }}{% endif %}</span>
+                    </header>
+                    <h2 class="post__title"><a href="{{ path('publication_show', {'id': publication.id}) }}" class="post__title-link">{{ publication.name }}</a></h2>
+                    <ul class="post__tags inline-list">
+                        {% for tag in publication.tags %}
+                            <li><a href="{{ path('show_tag_publications', {'tagName': tag.tagName}) }}" class="hub-link">{{ tag.tagName}}</a>&nbsp;|&nbsp;</li>
+                        {% endfor %}
+                    </ul>
+                    <div class="post__body">
+                        <div class="post__text">
+                            {{ publication.description }}
+                            <div class="post_img">
+                                {% if publication.postFileName %}<img width="50%" height="50%" alt="pic" src="/images/publication_images/{{ publication.postFileName }}">{% endif %}
+                            </div>
+                        </div>
+                        <div class="post__footer">
+                            <ul class="post-menu">
+                                <li>
+                                    <a class="btn-post post__show-btn" href="{{ path('publication_show', { 'id': publication.id }) }}">Читать далее</a>
+                                </li>
+                                {% if app.user is same as(publication.author) %}
+                                <li>
+                                    <a class="btn-post post__edit-btn" href="{{ path('publication_edit', { 'id': publication.id }) }}">Редактировать</a>
+                                </li>
+                                {% endif %}
+                            </ul>
+                            <span class="post-feedback">Отзывов: {{ publication.feedback|length }}</span>
+                        </div>
+                    </div>
+                </article>
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
+
+{% endblock %}
+
+{% block sidebar_right %}
+<div class="new_year">
+    <img width="50%" height="50%" src="{{ asset('gifs/new_year_tree.gif') }}">
+</div>
+{% endblock %}
+
+{% block footer %}
+    {{ render(controller('AntohaPublicationBundle:Block:mainMenuFooterAccounts'))}}
+    {{ render(controller('AntohaPublicationBundle:Block:mainMenuFooterSections'))}}
+    {{ render(controller('AntohaPublicationBundle:Block:mainMenuFooterInformation'))}}
+{% endblock %}

@@ -1,0 +1,19 @@
+antoha_publication_publication:
+    resource: "@AntohaPublicationBundle/Resources/config/routing/publication.yml"
+    prefix:   /
+
+antoha_publication_homepage:
+    path:     /
+    defaults: { _controller: "AntohaPublicationBundle:Default:preview" }
+
+feedback_edit:
+    path: /feedback/{id}/edit
+    defaults: {_controller: AntohaPublicationBundle:Feedback:edit}
+    requirements:
+        id: '\d+'
+
+feedback_delete:
+    path: /feedback/{id}/delete
+    defaults: {_controller: AntohaPublicationBundle:Feedback:delete}
+    requirements:
+        id: '\d+'

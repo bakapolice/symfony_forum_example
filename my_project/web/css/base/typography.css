@@ -1,0 +1,5 @@
+html, body { padding: 0; margin: 0; }
+
+body { overflow-y: scroll; overflow-x: hidden; font: 14px/20px "Proxima Nova Lt", Proxima, Arial, sans-serif; }
+
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }

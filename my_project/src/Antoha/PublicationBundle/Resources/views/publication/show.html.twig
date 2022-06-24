@@ -1,0 +1,80 @@
+{% extends '@AntohaPublication/publication/preview.html.twig' %}
+
+
+
+{% block main %}
+
+    <div class="post-wrapper">
+        <article class="post post-preview">
+            <header class="post__header">
+                <a class="post__user-info" href="#">
+                    {% if publication.author %}{% set author = publication.author %}{% set src = author.avatarFileName %}<img src="/images/avatars/{{ src}}" class="user__img">{% endif %}
+                    <span class="user-info__nickname">{{ publication.author }}</span>
+                </a>
+                <span class="post__time">{% if publication.publishingDate %}{{publication.publishingDate|date('d M Y, H:i')}}{% endif %}</span>
+            </header>
+            <h2 class="post__title">{{ publication.name }}</h2>
+            <ul class="post__tags inline-list">
+                {% for tag in publication.tags %}
+                    <li><a href="{{ path('show_tag_publications', {'tagName': tag.tagName}) }}" class="hub-link">{{ tag.tagName}}</a>&nbsp;|&nbsp;</li>
+                {% endfor %}
+            </ul>
+            <div class="post__body">
+                <div class="post__text">
+                    {{ publication.text|raw }}
+                </div>
+                {% if app.user is same as(publication.author) %}
+                <div class="post_action">
+                    <a class="post-btn post_btn-edit" href="{{ path('publication_edit', {'id': publication.id}) }}">Редактировать публикацию</a>
+                    <a class="post-btn post_btn-delete" href="{{ path('publication_delete', {'id': publication.id}) }}">Удалить публикацию</a>
+                    <a class="post-btn return_btn" href="{{ path('publication_preview') }}">К списку публикаций</a>
+                </div>
+                    {% else %}
+                        <div class="post_action">
+                            <a class="post-btn return_btn" href="{{ path('publication_preview') }}">К списку публикаций</a>
+                        </div>
+                {% endif %}
+                <div class="comment-list">
+                    <h2>Отзывы</h2>
+                    {% if is_granted('ROLE_USER') %}
+                    {{ form(comment_form) }}
+                    {% else %}
+                    Зарегистрируйтесь или войдите, чтобы оставлять отзывы...
+                    {% endif %}
+                    <ul class="content-list">
+                        {% for comment in publication.feedback %}
+                            <li class="content-list__item" id="{{ comment.id }}">
+                                <article class="post comment-preview">
+                                    <header class="post__header">
+                                        <a class="post__user-info" href="{{ path('fos_user_profile_show') }}">
+                                            {% if comment.user %}{% set user = comment.user %}{% set src = user.avatarFileName %}<img src="/images/avatars/{{ src}}" class="user__img user__img-small">{% endif %}
+                                            <span class="user-info__nickname">
+                                                {{ comment.user}}
+                                            </span>
+                                        </a>
+                                        <span class="post__time">{% if comment.feedbackDate %}{{ comment.feedbackDate|date('d M Y, H:i') }}{% endif %}</span>
+                                    </header>
+                                    <div class="post__body">
+                                        <div class="post__text">
+                                            {{ comment.text }}
+                                        </div>
+                                        {% if app.user is same as(comment.user)%}
+                                        <ul class="post-menu">
+                                            <li>
+                                                <a class="btn-post btn-post_delete-comment" href="{{ path('feedback_delete', {'id': comment.id}) }}">Удалить</a>
+                                            </li>
+                                            <li>
+                                                <a class="btn-post btn-post_edit-comment" href="{{ path('feedback_edit', {'id': comment.id}) }}">Редактировать</a>
+                                            </li>
+                                        </ul>
+                                        {% endif %}
+                                    </div>
+                                </article>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </article>
+    </div>
+{% endblock %}

@@ -1,0 +1,14 @@
+.footer { background-color: #FFFFFF; border-top: 1px solid #d5dddf; flex: 0 0 auto; }
+
+.region-footer { margin: 0 auto; padding: 0; max-width: 1200px; display: -webkit-flex; display: flex; }
+.region-footer .block { margin-left: 20px; margin-bottom: 10px; width: 180px; }
+.region-footer .block:first-child { margin: 0; }
+
+.footer-block__title { font: 14px/20px "-apple-system",BlinkMacSystemFont,Arial,sans-serif; color: #464646; margin: 0; padding: 0; height: 50px; font-weight: 400; border-bottom: 1px solid #d5dddf; line-height: 50px; }
+
+.footer-block__content { margin: 0; margin: 0; padding: 0; }
+.footer-block__content li { list-style: none; }
+.footer-block__content a { color: #548eaa; white-space: nowrap; font-size: 13px; font-family: "-apple-system",BlinkMacSystemFont,Arial,sans-serif; line-height: 30px; text-decoration: none; }
+.footer-block__content a:hover { color: #385c77; }
+
+.footer-menu { margin: 0; padding: 0; }

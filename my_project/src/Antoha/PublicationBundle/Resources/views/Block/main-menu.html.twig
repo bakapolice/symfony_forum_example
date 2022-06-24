@@ -1,0 +1,10 @@
+{% extends '@AntohaPublication/System/nav.html.twig' %}
+{% block block_class %}main-menu menu--main-menu_left{% endblock %}
+{% block block_title_wrap %}{% endblock %}
+{% block block_content %}
+    <ul class="menu">
+        <li class="menu-item"><a href="{{ path('publication_preview') }}">Публикации</a></li>
+        <li class="menu-item"><a href="{{ path('user_preview') }}">Пользователи</a></li>
+        <li class="menu-item"><a href="{{ path('tag_preview') }}">Теги</a></li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,91 @@
+@import "../default";
+@import "../inc/variable";
+@import "../inc/mixins";
+.header {
+  padding: 30px;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #d5dddf;
+}
+.region-header{
+  max-width: 1200px;
+  margin: 0 auto;
+  @include breakpoint($desktop){
+    @include display-flex;
+    @include align-items(center);
+    position: relative;
+    .block-logo{
+      @include flex-direction(row);
+    }
+  }
+}
+
+.menu--main-menu_left, .menu--main-menu_right{
+  flex-grow: 1;
+  label, input{
+    display: none;
+  }
+  .menu{
+    @include resetLi;
+  }
+  @include breakpoint($desktop){
+    .menu{
+      @include display-flex;
+      @include flex-direction(row);
+    }
+  }
+  a {
+    text-decoration: none;
+    @include display-flex;
+    @include align-items(center);
+    padding: 0 15px;
+  }
+}
+
+.menu--main-menu_left {
+  width: auto;
+  margin-left: 40px;
+  a{
+    color: $staticGrey;
+    &:hover{
+      color: $hoverBlue;
+    }
+    &.active{
+      color: $currentBlack;
+    }
+  }
+}
+
+.menu--main-menu_right {
+  .menu {
+    justify-content: flex-end;
+  }
+}
+
+.btn{
+  border: 1px solid $bGrey;
+  height: 32px;
+  border-radius: 3px;
+  padding: 0 13px;
+  margin: 0 5px;
+  font-size: 13px;
+  &-profile{
+  }
+}
+
+.btn_login, .btn_logout, .btn_profile{
+  color: $bGrey;
+  background-color: transparent;
+  &:hover{
+    color: $blHoverBlue;
+    border-color: $blHoverBlue;
+  }
+}
+
+.btn_registration, .btn_create-post{
+  color: #FFFFFF;
+  border-color: transparent;
+  background-color: $bBlue;
+  &:hover{
+    background-color: $bHoverBlue;
+  }
+}

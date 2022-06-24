@@ -1,0 +1,12 @@
+@import "../default";
+@import "../inc/variable";
+@import "../inc/mixins";
+
+.post_img{
+  @include display-flex;
+  margin-top: 20px;
+  img{
+    margin: 0;
+    border-radius: 3px;
+  }
+}

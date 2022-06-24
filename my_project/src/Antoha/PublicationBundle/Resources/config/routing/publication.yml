@@ -1,0 +1,41 @@
+publication_preview:
+    path:     /
+    defaults: { _controller: "AntohaPublicationBundle:Publication:preview" }
+    methods:  GET
+
+publication_show:
+    path:     /publication/{id}/show
+    defaults: { _controller: "AntohaPublicationBundle:Publication:show" }
+    methods:  [GET, POST]
+
+publication_new:
+    path:     /publication/new
+    defaults: { _controller: "AntohaPublicationBundle:Publication:new" }
+    methods:  [GET, POST]
+
+publication_edit:
+    path:     /publication/{id}/edit
+    defaults: { _controller: "AntohaPublicationBundle:Publication:edit" }
+    methods:  [GET, POST]
+
+publication_delete:
+    path:     /publication/{id}/delete
+    defaults: { _controller: "AntohaPublicationBundle:Publication:delete" }
+
+user_preview:
+    path:     /users
+    defaults: { _controller: "AntohaPublicationBundle:User:preview" }
+
+tag_preview:
+    path:     /tags
+    defaults: { _controller: "AntohaPublicationBundle:Tag:preview" }
+
+show_user_profile:
+    path: /users/{usernameCanonical}
+    defaults: {_controller: "AntohaPublicationBundle:User:show"}
+
+show_tag_publications:
+    path: /tags/{tagName}
+    defaults: {_controller: "AntohaPublicationBundle:Tag:show"}
+    requirements:
+        id: '[^/]++'

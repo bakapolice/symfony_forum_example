@@ -1,0 +1,8 @@
+@import "../default";
+@import "../inc/variable";
+@import "../inc/mixins";
+
+.region-main{
+  max-width: 1200px;
+  margin: 0 auto;
+}

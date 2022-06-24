@@ -1,0 +1,2 @@
+.post_img { display: -webkit-flex; display: flex; margin-top: 20px; }
+.post_img img { margin: 0; border-radius: 3px; }

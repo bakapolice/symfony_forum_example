@@ -1,0 +1,64 @@
+{% extends '@AntohaPublication/publication/preview.html.twig' %}
+
+{% block main %}
+    <div class="form-header">
+        <h1 class="form__title">Редактирование публикации</h1>
+    </div>
+{{ form_start(edit_form) }}
+        <div class="form_list">
+
+                <div class="form__item form__item-name">
+                    <div class="form__item-label">Название публикации: </div>
+                    <div class="form__item-field"> {{ form_widget(edit_form.name)}}</div>
+                    <div class="error"></div>
+                </div>
+
+                <div class="form__item form__item-image">
+                    <div class="form__item-label">Изображение: </div>
+                    <div class="form__item-field">{{ form_widget(edit_form.postFile)}}</div>
+                    <div class="error"></div>
+                </div>
+
+                <div class="form__item form__item-description">
+                    <div class="form__item-label">Содержание: </div>
+                    <div class="form__item-field">{{ form_widget(edit_form.description)}}</div>
+                    <div class="error"></div>
+                </div>
+
+            <div class="form__item form__item-tags">
+                <div class="form__item-label">Метки: </div>
+                <div class="form__item-field">
+                    {{ form_widget(edit_form.tags) }}
+                </div>
+                <div class="error"></div>
+            </div>
+
+            <div class="form__item form__item-image">
+                <div class="form__item-label">Метки: </div>
+                <div class="form__item-field">
+                    {{ form_widget(edit_form.postFile) }}
+                </div>
+                <div class="error"></div>
+            </div>
+
+            <div class="form__item form__item-text">
+                <div class="form__item-label">Содержание: </div>
+                <div class="form__item-field">{{ form_widget(edit_form.text)}}</div>
+                <div class="error"></div>
+            </div>
+
+                <div class="form_action">
+                    <input class="form-btn submit_btn-save" type="submit" value="Сохранить изменения"/>
+                    <a class="form-btn return_btn" href="{{ path('publication_delete', {'id': publication.id}) }}">Удалить публикацию</a>
+                    <a class="form-btn return_btn" href="{{ path('publication_preview') }}">К списку публикаций</a>
+                </div>
+            </div>
+{{ form_end(edit_form) }}
+{% endblock %}
+
+  {% block javascripts %}
+      <script src="{{ asset('scripts/vendor/ckeditor/ckeditor.js') }}"></script>
+      <script type="text/javascript">
+          CKEDITOR.replace('antoha_publicationbundle_publication_text')
+      </script>
+  {% endblock %}

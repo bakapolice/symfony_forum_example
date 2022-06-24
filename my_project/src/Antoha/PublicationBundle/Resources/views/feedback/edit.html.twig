@@ -1,0 +1,11 @@
+{% extends '@AntohaPublication/publication/preview.html.twig' %}
+
+{% block header %}
+    {{ render(controller('AntohaPublicationBundle:Block:logo')) }}
+    {{ render(controller('AntohaPublicationBundle:Block:mainMenu')) }}
+    {{ render(controller('AntohaPublicationBundle:Block:mainMenuAuthorization')) }}
+{% endblock %}
+
+{% block main %}
+    {{ form(feedback_edit_form) }}
+{% endblock %}

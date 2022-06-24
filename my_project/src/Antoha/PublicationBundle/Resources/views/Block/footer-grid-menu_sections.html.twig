@@ -1,0 +1,14 @@
+{% extends '@AntohaPublication/System/nav.html.twig' %}
+{% block block_class %}footer-grid-menu menu--footer-grid-menu{% endblock %}
+{% block block_title_wrap %}{% endblock %}
+{% block block_content %}
+    <h3 class="footer-block__title">Разделы
+    </h3>
+<div class="footer-block__content">
+    <ul class="footer-menu">
+        <li><a href="{{ path('publication_preview') }}">Публикации</a></li>
+        <li><a href="{{ path('user_preview') }}">Пользователи</a></li>
+        <li><a href="{{ path('tag_preview') }}">Теги</a></li>
+    </ul>
+</div>
+{% endblock %}
